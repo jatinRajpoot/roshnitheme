@@ -1,103 +1,189 @@
 <?php
 /**
- * The main template file
+ * Main template file
  */
 
 get_header();
+$theme_uri = get_template_directory_uri();
 
 if ( is_front_page() ) :
     ?>
     <main class="site-main">
-        <!-- Hero Section -->
-        <section class="hero" style="background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('<?php echo get_template_directory_uri(); ?>/images/hero-bg.png'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 12rem 0; position: relative;">
-            <div class="container" style="position: relative; z-index: 2;">
-                <h1 style="font-size: 4.5rem; margin-bottom: 2rem; font-family: 'Playfair Display', serif;">Roshni Health Care</h1>
-                <p style="font-size: 1.6rem; opacity: 0.9; max-width: 800px; margin: 0 auto;">Lighting the Path to Better Health with Compassion & Care</p>
-                <div style="margin-top: 3rem;">
-                    <a href="#services" class="btn btn-primary" style="background: var(--secondary); border: none; padding: 15px 40px; font-size: 1.1rem;">Explore Services</a>
-                    <a href="#contact" class="btn btn-primary" style="background: transparent; border: 2px solid #fff; margin-left: 1.5rem; padding: 15px 40px; font-size: 1.1rem;">Get in Touch</a>
+        <section class="hero-main hero-carousel" data-carousel>
+            <div class="hero-slide is-active hero-slide-education">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <span class="hero-badge">ROSHNI Centre for Special Education | Sonepat Road, Gohana</span>
+                        <h1>Training and Education Support for Children with Special Needs</h1>
+                        <p>Compassionate, skilled therapies for children and adolescents with ASD, ADHD, speech delays, behavior and school challenges.</p>
+                        <div class="hero-actions">
+                            <a href="<?php echo esc_url( home_url( '/services/special-education-programs/' ) ); ?>" class="btn btn-primary">Explore Education Programs</a>
+                            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline">Book Assessment</a>
+                        </div>
+                    </div>
+                    <div class="hero-panel">
+                        <p><strong>Focus Areas:</strong> ASD, ADHD, speech & language delays, behaviour management.</p>
+                        <p><strong>Therapies:</strong> Speech Therapy, Occupational Therapy, ABA, Social Skill Training.</p>
+                        <p><strong>Call Now:</strong> <a href="tel:9588536580">+91 9588536580</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide hero-slide-dental">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <span class="hero-badge">Dental Clinic | Dr. Amanpreet Chahal (Regd. No. 11317-A)</span>
+                        <h1>Comprehensive Dental Care at One Trusted Clinic</h1>
+                        <p>From checkups and scaling to RCT, crowns and extractions, get complete dental treatment with patient-first care in Gohana.</p>
+                        <div class="hero-actions">
+                            <a href="<?php echo esc_url( home_url( '/services/dental-care-services/' ) ); ?>" class="btn btn-primary">View Dental Services</a>
+                            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline">Book Dental Visit</a>
+                        </div>
+                    </div>
+                    <div class="hero-panel">
+                        <p><strong>Services:</strong> Dental X-Ray, Tooth Bleaching, RCT, Crowns, Extraction, Complete Denture.</p>
+                        <p><strong>Also Available:</strong> Dental Veneers, Scaling, Skin & Hair treatments.</p>
+                        <p><strong>Call Now:</strong> <a href="tel:9588536580">+91 9588536580</a></p>
+                    </div>
+                </div>
+            </div>
+            <button class="hero-carousel-nav hero-carousel-prev" type="button" aria-label="Previous slide">&#10094;</button>
+            <button class="hero-carousel-nav hero-carousel-next" type="button" aria-label="Next slide">&#10095;</button>
+            <div class="hero-carousel-dots" role="tablist" aria-label="Homepage highlights">
+                <button class="hero-carousel-dot is-active" type="button" aria-label="Show education slide" aria-current="true"></button>
+                <button class="hero-carousel-dot" type="button" aria-label="Show dental slide" aria-current="false"></button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container welcome-grid">
+                <article class="welcome-copy">
+                    <h2>Welcome to ROSHNI</h2>
+                    <p>At ROSHNI, families receive personalized therapy and medical support in a safe, warm and structured environment. Our therapists work closely with parents to build measurable progress plans for every child.</p>
+                    <p>Alongside special education therapies, we offer complete dental and skin-hair care services to make quality care accessible in one location.</p>
+                    <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-soft">Meet Our Team</a>
+
+                    <div class="stats">
+                        <div class="stat"><strong>10+ Years</strong><span>Clinical and therapy expertise</span></div>
+                        <div class="stat"><strong>500+</strong><span>Families supported</span></div>
+                        <div class="stat"><strong>6+</strong><span>Dedicated service streams</span></div>
+                        <div class="stat"><strong>1 Centre</strong><span>Integrated care in Gohana</span></div>
+                    </div>
+                </article>
+                <figure class="welcome-image">
+                    <img src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?auto=format&fit=crop&w=1200&q=80" alt="Friendly clinic environment">
+                </figure>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 0;" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Dedicated Service Programs</h2>
+                    <p>Every core service has its own detailed page so parents and patients can clearly understand what we offer.</p>
+                </div>
+                <div class="service-grid">
+                    <article class="card service-card">
+                        <div class="service-icon">SE</div>
+                        <h3>Special Education Programs</h3>
+                        <p>Support for ASD, ADHD, behaviour management, speech delays and school-related challenges.</p>
+                        <a href="<?php echo esc_url( home_url( '/services/special-education-programs/' ) ); ?>">Learn More</a>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-icon">SL</div>
+                        <h3>Speech and Language Therapy</h3>
+                        <p>Communication, articulation and language development plans with practical sessions.</p>
+                        <a href="<?php echo esc_url( home_url( '/services/speech-language-therapy/' ) ); ?>">Learn More</a>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-icon">OT</div>
+                        <h3>Occupational Therapy</h3>
+                        <p>Motor skills, sensory regulation and daily functional independence programs.</p>
+                        <a href="<?php echo esc_url( home_url( '/services/occupational-therapy/' ) ); ?>">Learn More</a>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-icon">AB</div>
+                        <h3>ABA and Behaviour Therapy</h3>
+                        <p>Applied Behaviour Analysis and structured behaviour intervention modules.</p>
+                        <a href="<?php echo esc_url( home_url( '/services/aba-behaviour-therapy/' ) ); ?>">Learn More</a>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-icon">DC</div>
+                        <h3>Dental Care Services</h3>
+                        <p>Dental X-ray, RCT, crowns, scaling, extraction and restorative procedures.</p>
+                        <a href="<?php echo esc_url( home_url( '/services/dental-care-services/' ) ); ?>">Learn More</a>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-icon">SH</div>
+                        <h3>Skin and Hair Treatments</h3>
+                        <p>Acne, scars, wrinkle reduction, hair fall treatment, permanent hair reduction and more.</p>
+                        <a href="<?php echo esc_url( home_url( '/services/skin-hair-treatments/' ) ); ?>">Learn More</a>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Special Education Section -->
-        <section id="special-education" style="background: #fff;">
+        <section class="section" style="padding-top: 0;">
             <div class="container">
-                <div class="section-title">
-                    <h2>Centre for Special Education</h2>
-                    <p>Highly Trained Therapists Providing Compassionate and Skilled Care</p>
-                </div>
-                <div class="footer-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                    <div class="card" style="background: var(--bg-light); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--secondary);">
-                        <h3>Areas We Work On</h3>
-                        <ul style="padding-left: 0;">
-                            <li>• Autism Spectrum Disorder (ASD)</li>
-                            <li>• ADHD</li>
-                            <li>• Behaviour Management</li>
-                            <li>• Anger Management</li>
-                            <li>• Mental Disabilities (M.R.)</li>
-                            <li>• Speech and Language Delays</li>
-                            <li>• Trouble in school or Home</li>
-                        </ul>
+                <div class="trust-strip">
+                    <div>
+                        <h3>Why Families Trust ROSHNI</h3>
+                        <p>Our approach combines empathy, structured routines and clinically guided treatment plans for real improvement.</p>
                     </div>
-                    <div class="card" style="background: var(--bg-light); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--accent);">
-                        <h3>Therapies We Provide</h3>
-                        <ul style="padding-left: 0;">
-                            <li>• Speech And Language Therapy</li>
-                            <li>• Occupational Therapy (OT)</li>
-                            <li>• Joint Attention Therapy</li>
-                            <li>• Applied Behaviour Analysis (ABA)</li>
-                            <li>• Physical Therapy</li>
-                            <li>• Behaviour Management Therapy</li>
-                            <li>• Social Skill Training</li>
-                        </ul>
-                    </div>
+                    <ul>
+                        <li>Highly trained therapists</li>
+                        <li>Parent-inclusive support model</li>
+                        <li>Integrated medical and therapy care</li>
+                        <li>Convenient central location in Gohana</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Dental & Skin Section -->
-        <section id="dental-skin" style="background: var(--bg-light);">
+        <section class="section" style="padding-top: 0;">
             <div class="container">
                 <div class="section-title">
-                    <h2>Specialized Medical Care</h2>
-                    <p>Dental, Skin & Hair Treatments by Dr. Amanpreet Chahal (BDS, PGDCC)</p>
+                    <h2>Parent Testimonials</h2>
+                    <p>Real feedback from families who visit our centre.</p>
                 </div>
-                <div class="footer-grid">
-                    <div class="card" style="background: #fff; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow);">
-                        <h3 style="color: var(--primary);">Dental Care</h3>
-                        <ul style="padding-left: 0;">
-                            <li>• Dental X-Ray & OPG</li>
-                            <li>• Bleaching (Teeth Whitening)</li>
-                            <li>• Root Canal Treatment (RCT)</li>
-                            <li>• Tooth Implants</li>
-                            <li>• Complete Dentures</li>
-                            <li>• Ultrasonic Scaling</li>
-                        </ul>
-                    </div>
-                    <div class="card" style="background: #fff; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow);">
-                        <h3 style="color: var(--secondary);">Skin & Hair</h3>
-                        <ul style="padding-left: 0;">
-                            <li>• Tattoo Removal</li>
-                            <li>• Acne & Scar Treatment</li>
-                            <li>• Hair Fall Treatment</li>
-                            <li>• Botox & Fillers</li>
-                            <li>• Permanent Hair Reduction</li>
-                            <li>• Wrinkle Reduction</li>
-                        </ul>
-                    </div>
+                <div class="testimonial-row">
+                    <article class="card testimonial-card">
+                        <p>"The speech therapy sessions are very structured. We saw clear progress in communication within a few months."</p>
+                        <strong>- Parent, Gohana</strong>
+                    </article>
+                    <article class="card testimonial-card">
+                        <p>"Behaviour therapy guidance helped us both at home and school. The team is patient and supportive."</p>
+                        <strong>- Parent, Sonipat Road</strong>
+                    </article>
+                    <article class="card testimonial-card">
+                        <p>"Dental and therapy support at one place saves so much time. The environment is clean and child-friendly."</p>
+                        <strong>- Family Feedback</strong>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Section -->
-        <section id="latest-blog" style="background: #fff;">
+        <section class="section" style="padding-top: 0;">
             <div class="container">
                 <div class="section-title">
-                    <h2>Latest from Our Blog</h2>
-                    <p>Health tips and news from Roshni Health Care</p>
+                    <h2>Centre Gallery</h2>
+                    <p>A glimpse of modern, safe and welcoming clinical spaces.</p>
                 </div>
-                <div class="footer-grid">
+                <div class="gallery-grid">
+                    <img src="<?php echo esc_url( $theme_uri . '/images/content-gallery/236fa3e0-5563-4d7b-864d-4e9448794848.jpg' ); ?>" alt="Dental clinic room">
+                    <img src="<?php echo esc_url( $theme_uri . '/images/content-gallery/e451c189-6323-42f3-8fbd-16965618b651.jpg' ); ?>" alt="Doctors treating patient">
+                    <img src="<?php echo esc_url( $theme_uri . '/images/content-gallery/e82298d1-a189-4815-9a00-081f3f1e7ede.jpg' ); ?>" alt="Dental procedure in progress">
+                    <img src="<?php echo esc_url( $theme_uri . '/images/content-gallery/961d8156-a377-47ad-b015-92e57a1a1309.jpg' ); ?>" alt="Dental X-ray screen">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Latest Health Tips</h2>
+                    <p>Child development and preventive care content from our team.</p>
+                </div>
+                <div class="blog-grid">
                     <?php
                     $latest_posts = get_posts( array(
                         'posts_per_page' => 3,
@@ -105,62 +191,35 @@ if ( is_front_page() ) :
                     ) );
 
                     if ( $latest_posts ) :
-                        foreach ( $latest_posts as $post ) : setup_postdata( $post );
+                        foreach ( $latest_posts as $post ) :
+                            setup_postdata( $post );
+                            $thumb = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                            if ( ! $thumb ) {
+                                $thumb = $theme_uri . '/images/post-fallback.svg';
+                            }
                             ?>
-                            <article class="card" style="background: var(--bg-light); padding: 2rem; border-radius: 15px;">
-                                <h3 style="font-size: 1.25rem;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                <div style="margin-bottom: 1rem; color: #666; font-size: 0.85rem;"><?php echo get_the_date(); ?></div>
-                                <div class="excerpt" style="font-size: 0.9rem;">
-                                    <?php the_excerpt(); ?>
+                            <article class="card blog-card">
+                                <img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" loading="lazy">
+                                <div class="blog-card-body">
+                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                    <p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18 ) ); ?></p>
+                                    <a href="<?php the_permalink(); ?>">Read Article</a>
                                 </div>
-                                <a href="<?php the_permalink(); ?>" style="color: var(--primary); font-weight: 700; margin-top: 1rem; display: inline-block;">Read More →</a>
                             </article>
                             <?php
                         endforeach;
                         wp_reset_postdata();
                     else :
                         ?>
-                        <div class="card" style="background: var(--bg-light); padding: 2rem; border-radius: 15px; grid-column: 1 / -1; text-align: center;">
-                            <p>No blog posts found yet. Start sharing your health expertise!</p>
-                        </div>
+                        <article class="card blog-card" style="grid-column: 1 / -1; padding: 1.3rem;">
+                            <div class="blog-card-body">
+                                <h3>Blog updates coming soon</h3>
+                                <p>We are preparing detailed guidance on child therapies, dental health and skin care.</p>
+                            </div>
+                        </article>
                         <?php
                     endif;
                     ?>
-                </div>
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="btn btn-primary" style="background: transparent; border: 2px solid var(--primary); color: var(--primary);">View All Posts</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Get in Touch Section -->
-        <section id="contact" style="background: var(--bg-light);">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Get in Touch</h2>
-                    <p>Have questions? We're here to help you on your path to better health.</p>
-                </div>
-                <div class="footer-grid" style="grid-template-columns: 1fr 1.5fr; gap: 4rem;">
-                    <div class="contact-sidebar">
-                        <div class="card" style="background: #fff; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                            <h3 style="color: var(--primary);">Visit Us</h3>
-                            <p>Sonepat Road, Gohana</p>
-                        </div>
-                        <div class="card" style="background: #fff; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                            <h3 style="color: var(--secondary);">Call Us</h3>
-                            <p><a href="tel:9588536580" style="color: var(--sun); font-weight: 800; font-size: 1.5rem;">9588536580</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-form-card" style="background: #fff; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow);">
-                        <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                            <input type="text" placeholder="Your Name" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                            <input type="email" placeholder="Your Email" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                        </div>
-                        <input type="text" placeholder="Subject" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem;">
-                        <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem;"></textarea>
-                        <button class="btn btn-primary" style="width: 100%; font-size: 1rem; padding: 15px;">Send Message</button>
-                    </div>
                 </div>
             </div>
         </section>
@@ -168,25 +227,17 @@ if ( is_front_page() ) :
     <?php
 else :
     ?>
-    <main id="primary" class="site-main">
-        <div class="container" style="padding: 4rem 0;">
-            <?php
-            if ( have_posts() ) :
-                while ( have_posts() ) :
-                    the_post();
-                    if ( is_singular() ) :
-                        the_title('<h1>', '</h1>');
-                        the_content();
-                    else :
-                        the_title('<h2><a href="' . get_permalink() . '">', '</a></h2>');
-                        the_excerpt();
-                    endif;
-                endwhile;
-            else :
-                echo '<p>No content found</p>';
-            endif;
-            ?>
-        </div>
+    <main class="site-main">
+        <section class="section">
+            <div class="container">
+                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                    <article class="page-content-shell">
+                        <h1 style="margin-bottom: 1rem;"><?php the_title(); ?></h1>
+                        <div class="ro-single-content"><?php the_content(); ?></div>
+                    </article>
+                <?php endwhile; endif; ?>
+            </div>
+        </section>
     </main>
     <?php
 endif;

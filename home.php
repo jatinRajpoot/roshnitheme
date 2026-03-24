@@ -1,43 +1,49 @@
 <?php
 /**
- * The blog index template
+ * Blog index template
  */
 
 get_header();
+$theme_uri = get_template_directory_uri();
 ?>
 
 <main class="site-main">
-    <section class="page-header" style="background: #2c3e50; color: #fff; padding: 4rem 0; text-align: center;">
-        <div class="container">
-            <h1>Latest Updates</h1>
-            <p>Health tips and news from Roshni Health Care</p>
-        </div>
-    </section>
+    <?php roshni_render_page_hero( array(
+        'title'    => 'Health Tips & Updates',
+        'subtitle' => 'Practical articles on child development, therapy support, dental care and skin wellness.',
+        'image'    => 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80',
+    ) ); ?>
 
-    <section class="blog-posts">
+    <section class="section">
         <div class="container">
-            <div class="footer-grid">
-                <?php
-                if ( have_posts() ) :
-                    while ( have_posts() ) :
-                        the_post();
-                        ?>
-                        <article class="card" style="background: #fff; padding: 2rem; border-radius: 15px;">
-                            <h2 style="font-size: 1.5rem;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                            <div style="margin: 1rem 0; color: #666; font-size: 0.9rem;">
-                                Published on <?php echo get_the_date(); ?>
-                            </div>
-                            <div class="excerpt">
-                                <?php the_excerpt(); ?>
-                            </div>
-                            <a href="<?php the_permalink(); ?>" class="btn btn-primary" style="margin-top: 1rem; font-size: 0.9rem; padding: 8px 16px;">Read More</a>
-                        </article>
-                        <?php
-                    endwhile;
-                else :
-                    echo '<p>No posts found.</p>';
-                endif;
-                ?>
+            <div class="blog-grid">
+                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                    <?php
+                    $thumb = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                    if ( ! $thumb ) {
+                        $thumb = $theme_uri . '/images/post-fallback.svg';
+                    }
+                    ?>
+                    <article class="card blog-card">
+                        <img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" loading="lazy">
+                        <div class="blog-card-body">
+                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                            <p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?></p>
+                            <a href="<?php the_permalink(); ?>">Read Article</a>
+                        </div>
+                    </article>
+                <?php endwhile; else : ?>
+                    <article class="card blog-card" style="padding: 1.2rem; grid-column: 1 / -1;">
+                        <div class="blog-card-body">
+                            <h3>No posts published yet</h3>
+                            <p>Create your first health article from WordPress dashboard to populate this section.</p>
+                        </div>
+                    </article>
+                <?php endif; ?>
+            </div>
+
+            <div style="margin-top: 1.2rem;">
+                <?php the_posts_pagination(); ?>
             </div>
         </div>
     </section>

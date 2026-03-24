@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="250" viewBox="0 0 860 250" fill="none" role="img" aria-label="Roshni Health Care logo">
+  <defs>
+    <linearGradient id="toothBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#49B6E6"/>
+      <stop offset="100%" stop-color="#0A4FA8"/>
+    </linearGradient>
+    <linearGradient id="leafGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7CCB4F"/>
+      <stop offset="100%" stop-color="#1E9B57"/>
+    </linearGradient>
+    <linearGradient id="personOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F9C04A"/>
+      <stop offset="100%" stop-color="#EF6C2A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="860" height="250" fill="white"/>
+
+  <g transform="translate(24,22)">
+    <path d="M128 20C84 20 54 52 50 101C46 151 74 187 126 196" stroke="url(#toothBlue)" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M128 20C172 20 202 52 206 101C210 151 182 187 130 196" stroke="url(#toothBlue)" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M52 140C78 154 96 174 116 196" stroke="url(#leafGreen)" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M204 140C178 154 160 174 140 196" stroke="url(#leafGreen)" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <circle cx="128" cy="85" r="12" fill="url(#personOrange)"/>
+    <path d="M128 98C124 118 113 136 95 148" stroke="url(#personOrange)" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M130 112C146 130 160 139 176 142" stroke="url(#personOrange)" stroke-width="11" stroke-linecap="round" fill="none"/>
+    <path d="M112 36L118 24M129 31L132 15M145 37L152 24" stroke="#F9B930" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <text x="262" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-weight="700" fill="#0E55AD">Roshni</text>
+  <text x="270" y="172" font-family="Arial, Helvetica, sans-serif" font-size="56" letter-spacing="7" fill="#2B9A59">HEALTH CARE</text>
+  <line x1="575" y1="156" x2="650" y2="156" stroke="#2F86B8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="270" y1="156" x2="345" y2="156" stroke="#2F86B8" stroke-width="4" stroke-linecap="round"/>
+  <text x="266" y="216" font-family="Arial, Helvetica, sans-serif" font-size="44" font-style="italic" fill="#D97A2D">Lighting the Path to Better Health</text>
+</svg>

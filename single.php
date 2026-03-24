@@ -1,46 +1,36 @@
 <?php
 /**
- * The template for displaying all single posts
+ * Single post template
  */
 
 get_header();
+$theme_uri = get_template_directory_uri();
 ?>
 
-<main id="primary" class="site-main">
-    <?php
-    while ( have_posts() ) :
-        the_post();
-        ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <section class="page-header" style="background: #2c3e50; color: #fff; padding: 4rem 0; text-align: center;">
-                <div class="container">
-                    <h1><?php the_title(); ?></h1>
-                    <div style="margin-top: 1rem; opacity: 0.8;">
-                        By <?php the_author(); ?> | <?php echo get_the_date(); ?>
-                    </div>
-                </div>
-            </section>
-
-            <section class="post-content" style="padding: 4rem 0;">
-                <div class="container" style="max-width: 800px;">
-                    <?php
-                    if ( has_post_thumbnail() ) {
-                        the_post_thumbnail('large', array('style' => 'width: 100%; height: auto; border-radius: 15px; margin-bottom: 2rem;'));
-                    }
-                    the_content();
-                    ?>
-                </div>
-            </article>
-
-            <section class="post-navigation" style="padding-bottom: 4rem;">
-                <div class="container" style="max-width: 800px; display: flex; justify-content: space-between; border-top: 1px solid #ddd; padding-top: 2rem;">
-                    <div><?php previous_post_link('%link', '← Previous Post'); ?></div>
-                    <div><?php next_post_link('%link', 'Next Post →'); ?></div>
-                </div>
-            </section>
+<main class="site-main">
+    <?php while ( have_posts() ) : the_post(); ?>
         <?php
-    endwhile;
-    ?>
+        $hero_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+        if ( ! $hero_image ) {
+            $hero_image = 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=1600&q=80';
+        }
+        roshni_render_page_hero( array(
+            'title'    => get_the_title(),
+            'subtitle' => get_the_date(),
+            'image'    => $hero_image,
+        ) );
+        ?>
+
+        <section class="section">
+            <div class="container">
+                <article class="page-content-shell">
+                    <div class="ro-single-content">
+                        <?php the_content(); ?>
+                    </div>
+                </article>
+            </div>
+        </section>
+    <?php endwhile; ?>
 </main>
 
 <?php
